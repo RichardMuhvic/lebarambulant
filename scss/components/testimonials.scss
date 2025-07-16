@@ -1,0 +1,37 @@
+/*-------------------------*/
+/*----------------------------------------*
+/*-------TEMOIGNAGE----------*/
+/*---------------------------*/
+/*-------------------------*/
+.testimonials-section {
+    min-height: 100vh;
+    @include flex-center;
+    flex-direction: column;
+    padding: 60px 20px;
+    position: relative;
+
+    .section-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(80px, 15vw, 200px);
+        font-weight: 900;
+        letter-spacing: 0;
+        transform-origin: center center;
+        text-align: center;
+        color: $yellow;
+        margin: 0 0 60px 0;
+        line-height: 0.9;
+    }
+}
+
+.testimonial-card {
+    animation: slideInFromLeft 0.8s ease-out;
+
+    &:nth-child(even) {
+        animation: slideInFromRight 0.8s ease-out;
+    }
+}
+
+.auto-rotate {
+    animation: pulse 2s infinite;
+}
+

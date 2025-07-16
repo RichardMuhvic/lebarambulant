@@ -1,0 +1,216 @@
+//tous les styles des boutons
+
+//CTA Bouton néon : 
+
+
+
+//CTA Hero Banner/Header :
+/*.cta-btn {
+    @include title-text;
+    font-size: 1.5em;
+    position: absolute;
+    display: flex;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center center;
+    z-index: 10;
+    background: transparent;
+    color: $yellow;
+    padding: 0.3rem 3.5rem;
+    border: 4px solid $yellow;
+    border-radius: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    a {
+        color: $yellow;
+        text-decoration: none;
+    }
+}
+
+.cta-btn:hover {
+    transform: translateX(-50%) rotate(-5deg) scale(1.09);
+    background-color: $yellow;
+    box-shadow: 0 8px 25px rgba(24, 24, 24, 0.4);
+
+    a {
+        color: $deep-blue;
+    }
+}*/
+.cta-btn {
+    @include title-text;
+    font-size: 1.5em;
+    position: absolute;
+    display: flex;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center center;
+    z-index: 10;
+    background: transparent;
+    color: $yellow;
+    padding: 0.3rem 3.5rem;
+    border: 4px solid $yellow;
+    border-radius: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-box-reflect: below 2px linear-gradient(transparent 50%, rgba($yellow, 0.1));
+
+    a {
+        color: $yellow;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    // Double halo pour plus d'intensité
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &::before {
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        background: $yellow;
+        z-index: -2;
+        filter: blur(20px);
+    }
+
+    &::after {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: linear-gradient(45deg, $yellow, lighten($yellow, 20%), $yellow);
+        z-index: -1;
+        filter: blur(10px);
+    }
+}
+
+.cta-btn:hover {
+    transform: translateX(-50%) rotate(-5deg) scale(1.09) translateY(-2px);
+    background-color: $yellow;
+    border-color: lighten($yellow, 10%);
+    box-shadow: 
+        0 8px 25px rgba(24, 24, 24, 0.4),
+        0 0 15px $yellow,
+        0 0 30px $yellow,
+        0 0 45px $yellow,
+        0 0 60px rgba($yellow, 0.6),
+        inset 0 0 15px rgba(255, 255, 255, 0.2);
+
+    a {
+        color: $deep-blue;
+        text-shadow: 
+            0 0 10px rgba($deep-blue, 0.5),
+            0 0 20px rgba($deep-blue, 0.3);
+    }
+
+    &::before {
+        opacity: 0.3;
+    }
+
+    &::after {
+        opacity: 0.6;
+    }
+}
+
+
+//CTA Services :
+.service-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    width: 100%;
+    padding: 18px 30px;
+    background-color: $yellow;
+    color: $deep-blue;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+//CTA testimonials :
+.cta-button {
+    background-color: $yellow;
+    color: $deep-blue;
+    border: 3px solid $yellow;
+    padding: 20px 60px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: $transition-normal;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+
+    @include mobile {
+        padding: 15px 40px;
+        font-size: 1.2rem;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: $deep-blue;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+        z-index: 0;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        @include card-shadow(1);
+        border-color: $deep-blue;
+
+        &:before {
+            width: 300px;
+            height: 300px;
+        }
+
+        span {
+            color: #000;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
+        transition: color 0.3s ease;
+    }
+}

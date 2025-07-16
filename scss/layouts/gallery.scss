@@ -1,0 +1,251 @@
+/*----------------------------*/
+/*----------------------------*/
+/*------SECTION GALERIE-------*/
+/*----------------------------*/
+/*----------------------------*/
+.galerie {
+    background-color: $deep-blue;
+    padding: 80px 0;
+    overflow: hidden;
+
+    &-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    //titre principal
+
+    // Wrapper avec positionnement absolu pour les items
+    &-wrapper {
+        position: relative;
+        width: 100%;
+        height: 800px; // Hauteur fixe pour le positionnement absolu
+        margin: 0 auto;
+
+        @media (max-width: 1200px) {
+            height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    // Items de la galerie avec positionnement exact selon la maquette
+    &-item {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color: $yellow;
+        cursor: pointer;
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+            box-shadow 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+            z-index 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        will-change: transform; // Optimise les performances
+
+        // Positionnement exact de chaque photo selon la maquette
+        &--festival {
+            width: 320px;
+            height: 240px;
+            top: 50px;
+            left: 80px;
+        }
+
+        &--mariage {
+            width: 280px;
+            height: 280px;
+            top: 20px;
+            left: 450px;
+        }
+
+        &--barman {
+            width: 280px;
+            height: 340px;
+            top: 40px;
+            right: 80px;
+        }
+
+        &--anniversaire {
+            width: 260px;
+            height: 260px;
+            top: 320px;
+            left: 40px;
+        }
+
+        &--cocktails {
+            width: 240px;
+            height: 180px;
+            top: 340px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &--remorque {
+            width: 240px;
+            height: 160px;
+            bottom: 80px;
+            left: 200px;
+        }
+
+        &--produits {
+            width: 260px;
+            height: 340px;
+            bottom: 50px;
+            left: 480px;
+        }
+
+        &--setup {
+            width: 340px;
+            height: 260px;
+            bottom: 100px;
+            right: 60px;
+        }
+
+        // Effet de survol ultra smooth
+        &:hover {
+            transform: scale(1.06);
+            z-index: 50;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        // Ajustement pour cocktails au centre
+        &--cocktails:hover {
+            transform: translateX(-50%) scale(1.06);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1),
+                filter 0.8s ease;
+            will-change: transform;
+
+            .galerie-item:hover & {
+                transform: scale(1.08);
+                filter: brightness(1.05) contrast(1.05);
+            }
+        }
+
+        // Responsive - passage en grille sur mobile
+        @media (max-width: 768px) {
+            position: relative !important;
+            width: 100% !important;
+            height: 250px !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+
+            &:hover {
+                transform: scale(1.05) !important;
+            }
+        }
+    }
+
+    // Overlay avec titre
+    &-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 30px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .galerie-item:hover & {
+            opacity: 1;
+        }
+
+        h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: white;
+            letter-spacing: 3px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+
+            .galerie-item:hover & {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    // Animation de flottement subtil
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @keyframes floatCenter {
+
+        0%,
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    // Appliquer l'animation seulement aux images, pas aux conteneurs
+    &-item {
+        &--festival img {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        &--mariage img {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        &--barman img {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        &--cocktails img {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        &--setup img {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        // Pause l'animation au survol du conteneur
+        &:hover img {
+            animation-play-state: paused;
+        }
+    }
+
+    // Responsive
+    @media (max-width: 768px) {
+        padding: 60px 0;
+
+        &-container {
+            padding: 0 20px;
+        }
+    }
+}

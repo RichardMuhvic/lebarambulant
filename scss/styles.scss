@@ -1,0 +1,58 @@
+// Abstracts (toujours en premier)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// Base
+@import 'base/reset';
+@import 'base/base';
+@import 'base/typography';
+
+// Layouts
+@import 'layouts/header';
+@import 'layouts/sections';
+@import 'layouts/footer';
+@import 'layouts/formulaire';
+@import 'layouts/histoire';
+@import 'layouts/gallery';
+@import 'layouts/services';
+
+
+// Components
+@import 'components/banner';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/carousel';
+@import 'components/testimonials';
+@import 'components/navigation';
+@import 'components/trailer';
+
+// Utilities
+@import 'utilities/animations';
+@import 'utilities/helpers';
+
+
+body {
+    background-color: $deep-blue;
+    margin: 0;
+    overflow-x: hidden;
+    // ⚠️ IMPORTANT: Supprimé overflow-y: hidden pour permettre le défilement
+}
+
+/*-------------------------------------*/
+/*----------remorque-------------------*/
+.airstream {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 22%;
+    z-index: 50;
+    opacity: 1;
+    transform-origin: center center;
+
+    img {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    }
+}

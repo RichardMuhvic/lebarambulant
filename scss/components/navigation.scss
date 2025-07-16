@@ -1,0 +1,63 @@
+//Navigation, dots, etc...
+
+//NAV Hero Banner/Header :
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        width: 25%;
+    }
+
+    .logo img {
+        padding: 20px;
+        width: 50%;
+    }
+
+    .nav-links {
+        position: relative;
+        top: -10px;
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        width: 50%;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+
+        a {
+            @include title-text;
+            text-decoration: none;
+            color: $yellow;
+            transform: scale(1);
+            transition: transform 0.3s ease, color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background-color: $yellow;
+                transform: translateX(-50%);
+                transition: width 0.3s ease;
+            }
+        }
+
+        a:hover {
+            transform: scale(1.1);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

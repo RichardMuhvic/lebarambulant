@@ -1,0 +1,10 @@
+/*Styles de base :
+body, *, etc...
+*/
+
+body {
+    background-color: $yellow;
+    margin: 0;
+    overflow-x: hidden;
+    // ⚠️ IMPORTANT: Supprimé overflow-y: hidden pour permettre le défilement
+}

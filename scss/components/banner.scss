@@ -1,0 +1,150 @@
+/*----------------------------*/
+/*----------BANNIERE----------*/
+/*----------------------------*/
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+// Conteneur principal de la bannière
+.banner-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: transparent;
+    z-index: 15;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+// Wrapper pour l'animation
+.banner-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    @include flex-center;
+    animation: scrollBanner 20s linear infinite;
+    width: 200%;
+
+    &.scroll-active {
+        animation-duration: 15s;
+    }
+
+    &.scroll-fast {
+        animation-duration: 10s;
+    }
+}
+
+// L'image de bannière répétée
+.banner-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+// Contenu de démonstration
+.demo-content {
+    margin-top: 140px;
+    padding: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .demo-section {
+        margin-bottom: 60px;
+        padding: 40px;
+        border-radius: 10px;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .banner-container {
+        height: 80px;
+    }
+
+    .demo-content {
+        margin-top: 100px;
+        padding: 20px;
+
+        .demo-section {
+            padding: 20px;
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Styles pour tablettes
+@media (max-width: 1024px) and (min-width: 769px) {
+    .demo-content {
+        padding: 30px;
+
+        .demo-section {
+            padding: 30px;
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+// Animation states pour différentes vitesses de scroll
+.banner-wrapper {
+
+    // État normal
+    &:not(.scroll-active):not(.scroll-fast) {
+        animation-duration: 20s;
+    }
+
+    // État scroll moyen
+    &.scroll-active:not(.scroll-fast) {
+        animation-duration: 15s;
+    }
+
+    // État scroll rapide
+    &.scroll-fast {
+        animation-duration: 10s;
+    }
+}
+
+// Effet de survol sur les images (optionnel)
+.banner-image {
+    @include transition(transform);
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+// Styles pour l'accessibilité
+@media (prefers-reduced-motion: reduce) {
+    .banner-wrapper {
+        animation-duration: 60s !important;
+    }
+
+    .banner-image {
+        transition: none !important;
+    }
+}

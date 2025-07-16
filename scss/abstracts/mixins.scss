@@ -1,0 +1,86 @@
+//Tout les mixins
+
+@mixin icon-color($color) {
+    @if $color == 'yellow' {
+        filter: brightness(0) saturate(100%) invert(73%) sepia(91%) saturate(1365%) hue-rotate(5deg) brightness(101%) contrast(106%);
+    } @else if $color == 'white' {
+        filter: brightness(0) saturate(100%) invert(100%);
+    } @else if $color == 'black' {
+        filter: brightness(0) saturate(100%);
+    }
+}
+
+@mixin typography-title {
+    font-family: $font-primary;
+    font-style: normal;
+    font-size: 4em;
+}
+
+@mixin title-text {
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1em;
+}
+
+@mixin main-text {
+    font-family: $font-secondary;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+}
+/*bannière mixins*/
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease) {
+    transition: $property $duration $ease;
+}
+
+
+/*tempignages mixins*/
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin card-shadow($level: 1) {
+    @if $level ==1 {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    @else if $level ==2 {
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    @else {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+}
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+/*footer mixins*/
+// Mixins
+@mixin hover-effect {
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+@mixin responsive-grid {
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: $spacing-large;
+        text-align: center;
+    }
+}
