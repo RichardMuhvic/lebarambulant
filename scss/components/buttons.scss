@@ -64,6 +64,7 @@
     -webkit-box-reflect: below 2px linear-gradient(transparent 50%, rgba($yellow, 0.1));
     animation: neonFlicker1 4s linear 2.5s forwards;
     opacity: 0;
+
     a {
         color: $yellow;
         text-decoration: none;
@@ -105,7 +106,7 @@
     transform: translateX(-50%) rotate(-5deg) scale(1.09) translateY(-2px);
     background-color: $yellow;
     border-color: lighten($yellow, 10%);
-    box-shadow: 
+    box-shadow:
         0 8px 25px rgba(24, 24, 24, 0.4),
         0 0 15px $yellow,
         0 0 30px $yellow,
@@ -115,7 +116,7 @@
 
     a {
         color: $deep-blue;
-        text-shadow: 
+        text-shadow:
             0 0 10px rgba($deep-blue, 0.5),
             0 0 20px rgba($deep-blue, 0.3);
     }
@@ -135,6 +136,7 @@
     font-family: 'Bebas Neue', sans-serif;
     width: 100%;
     padding: 18px 30px;
+    transform-origin: center center;
     background-color: $yellow;
     color: $deep-blue;
     border: none;
@@ -148,7 +150,25 @@
 
     &:hover {
         transform: translateY(-5px);
+        transform-origin: center center;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        transform: /*translateX(-50%)*/ rotate(-5deg) scale(1.09) translateY(-2px);
+        background-color: $yellow;
+        border-color: lighten($yellow, 10%);
+        box-shadow:
+            0 8px 25px rgba(24, 24, 24, 0.4),
+            0 0 15px $yellow,
+            0 0 30px $yellow,
+            0 0 45px $yellow,
+            0 0 60px rgba($yellow, 0.6),
+            inset 0 0 15px rgba(255, 255, 255, 0.2);
+
+        a {
+            color: $deep-blue;
+            text-shadow:
+                0 0 10px rgba($deep-blue, 0.5),
+                0 0 20px rgba($deep-blue, 0.3);
+        }
     }
 }
 
