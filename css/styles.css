@@ -43,6 +43,7 @@ body {
   display: flex;
   justify-content: center;
   z-index: 15;
+  animation: introTitle 1.5s ease-in-out forwards;
 }
 .hero .title-container .main-title img {
   width: 90%;
@@ -57,6 +58,9 @@ body {
   z-index: 20;
   gap: 3rem;
   transform: translateY(-50%);
+  animation: slideSocialMedia 1.3s ease-out forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
 }
 .hero .social-media a {
   transition: transform 0.3s ease;
@@ -1028,6 +1032,8 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   -webkit-box-reflect: below 2px linear-gradient(transparent 50%, rgba(241, 200, 23, 0.1));
+  animation: neonFlicker1 4s linear 2.5s forwards;
+  opacity: 0;
 }
 .cta-btn a {
   color: #F1C817;
@@ -1323,6 +1329,9 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
+  animation: slideNavigation 1s ease-out forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
 }
 .nav .logo {
   width: 25%;
@@ -1372,8 +1381,8 @@ body {
   width: 100%;
 }
 
-/*-------------------------------------*/
-/*----------remorque-------------------*/
+/*----------------------------------------*/
+/*--------------TRAILER-------------------*/
 .airstream {
   position: absolute;
   width: 20%;
@@ -1395,6 +1404,130 @@ body {
   }
   100% {
     transform: translateX(-40%);
+  }
+}
+@keyframes introTitle {
+  0% {
+    opacity: 0;
+    scale: 0.2;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes slideNavigation {
+  0% {
+    top: -50px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes slideSocialMedia {
+  0% {
+    left: -50px;
+    opacity: 0;
+  }
+  100% {
+    left: 3em;
+    opacity: 1;
+  }
+}
+@keyframes neonFlicker1 {
+  /* Éteint au début */
+  0% {
+    color: rgba(245, 200, 66, 0.1);
+    border-color: rgba(245, 200, 66, 0.1);
+    text-shadow: none;
+    box-shadow: none;
+  }
+  /* Premier essai d'allumage - très court */
+  3% {
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842, 0 0 40px #f5c842;
+    box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.5), 0 0 20px rgba(245, 200, 66, 0.8);
+  }
+  4% {
+    color: rgba(245, 200, 66, 0.1);
+    border-color: rgba(245, 200, 66, 0.1);
+    text-shadow: none;
+    box-shadow: none;
+  }
+  /* Deuxième essai - un peu plus long */
+  8% {
+    color: rgba(245, 200, 66, 0.7);
+    border-color: rgba(245, 200, 66, 0.7);
+    text-shadow: 0 0 5px #f5c842;
+    box-shadow: 0 0 10px rgba(245, 200, 66, 0.3);
+  }
+  10% {
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842;
+    box-shadow: inset 0 0 15px rgba(245, 200, 66, 0.4), 0 0 15px rgba(245, 200, 66, 0.6);
+  }
+  13% {
+    color: rgba(245, 200, 66, 0.1);
+    border-color: rgba(245, 200, 66, 0.1);
+    text-shadow: none;
+    box-shadow: none;
+  }
+  /* Série de clignotements rapides */
+  16%, 18%, 20% {
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842, 0 0 30px #f5c842;
+    box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.5), 0 0 20px rgba(245, 200, 66, 0.7);
+  }
+  17%, 19%, 21% {
+    color: rgba(245, 200, 66, 0.2);
+    border-color: rgba(245, 200, 66, 0.2);
+    text-shadow: none;
+    box-shadow: none;
+  }
+  /* Allumage plus long mais instable */
+  25% {
+    color: rgba(245, 200, 66, 0.8);
+    border-color: rgba(245, 200, 66, 0.8);
+    text-shadow: 0 0 8px #f5c842, 0 0 15px #f5c842;
+    box-shadow: inset 0 0 15px rgba(245, 200, 66, 0.3), 0 0 15px rgba(245, 200, 66, 0.5);
+  }
+  30%, 35% {
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842, 0 0 30px #f5c842, 0 0 40px #ffed4e;
+    box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.5), 0 0 25px rgba(245, 200, 66, 0.8), 0 0 40px rgba(245, 200, 66, 0.5);
+  }
+  32% {
+    color: rgba(245, 200, 66, 0.3);
+    border-color: rgba(245, 200, 66, 0.3);
+    text-shadow: 0 0 5px #f5c842;
+    box-shadow: 0 0 10px rgba(245, 200, 66, 0.2);
+  }
+  /* Derniers soubresauts */
+  40%, 42%, 44% {
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842, 0 0 30px #f5c842, 0 0 40px #ffed4e;
+    box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.5), 0 0 25px rgba(245, 200, 66, 0.8), 0 0 40px rgba(245, 200, 66, 0.5);
+  }
+  41%, 43% {
+    color: rgba(245, 200, 66, 0.5);
+    border-color: rgba(245, 200, 66, 0.5);
+    text-shadow: 0 0 8px #f5c842;
+    box-shadow: inset 0 0 10px rgba(245, 200, 66, 0.2), 0 0 10px rgba(245, 200, 66, 0.3);
+  }
+  /* Allumage final stable */
+  50%, 100% {
+    opacity: 1;
+    color: #f5c842;
+    border-color: #f5c842;
+    text-shadow: 0 0 10px #f5c842, 0 0 20px #f5c842, 0 0 30px #f5c842, 0 0 40px #ffed4e, 0 0 60px #ffed4e;
+    box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.5), 0 0 20px rgba(245, 200, 66, 0.6), 0 0 40px rgba(245, 200, 66, 0.4), 0 0 60px rgba(245, 200, 66, 0.2);
   }
 }
 @keyframes slideInFromLeft {

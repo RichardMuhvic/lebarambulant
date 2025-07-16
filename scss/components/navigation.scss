@@ -9,7 +9,9 @@
     z-index: 1000;
     display: flex;
     align-items: center;
-
+    animation: slideNavigation 1s ease-out forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
     .logo {
         width: 25%;
     }

@@ -62,7 +62,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     -webkit-box-reflect: below 2px linear-gradient(transparent 50%, rgba($yellow, 0.1));
-
+    animation: neonFlicker1 4s linear 2.5s forwards;
+    opacity: 0;
     a {
         color: $yellow;
         text-decoration: none;
